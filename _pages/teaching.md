@@ -2,9 +2,24 @@
 layout: page
 permalink: /teaching/
 title: teaching
-description: Materials for courses you taught. Replace this text with your description.
+description: Here are some courses / mentored I have taken in past.
 ---
 
-For now, this page is assumed to be a static description of your courses. You can convert it to a collection similar to `_projects/` so that you can have a dedicated page for each course.
-
-Organize your courses by years, topics, or universities, however you like!
+<ul>
+    <li>Instructor - Introduction to Python for development and Data Analytics, CTE, BITS Goa (<a href="https://drive.google.com/file/d/1Hj4O6HimM9aKNh2dEonNnRii9c6TVN1s/view?usp=sharing" target="_blank" title="Certificate">Certificate</a>)
+        <div>
+            <ul>
+                <li>Taught basics of the python language and its various applications in fields like data analytics, web scraping, game dev.</li>
+                <li>The class comprised of 100 students who were in their freshman year and some higher degree students.</li>
+            </ul>
+        </div>
+    </li>
+    <li>Instructor - Introduction to Deep Learning,QSTP, BITS Goa 
+        <div>
+            <ul>
+                <li>Taught basics of the python language and its various applications in fields like data analytics, web scraping, game dev.</li>
+                <li>The class comprised of 100 students who were in their freshman year and some higher degree students. </li>
+            </ul>
+        </div>
+    </li>
+</ul>
