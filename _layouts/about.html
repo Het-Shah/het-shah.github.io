@@ -3,16 +3,21 @@ layout: page
 ---
 
 {% if page.profile %}
-  <div class="profile col one {{ page.profile.align }}">
-    {% if page.profile.image %}
-      <img class="one" src="{{ page.profile.image | prepend: '/assets/img/' | prepend: site.baseurl | prepend: site.url }}">
-    {% endif %}
-    {% if page.profile.address %}
-      <div class="address">
-        {{ page.profile.address }}
-      </div>
-    {% endif %}
+<div class="profile col one {{ page.profile.align }}">
+  {% if page.profile.image %}
+  <img class="one" src="{{ page.profile.image | prepend: '/assets/img/' | prepend: site.baseurl | prepend: site.url }}">
+  {% endif %}
+  <div style="width:800px; margin:0 auto;">
+    <a href="https://drive.google.com/file/d/1fD_O_u46J5v_DMLE16aLS_XeNR24N8O-/view?usp=sharing">CV</a> |
+    <a href="https://drive.google.com/file/d/1n0dpxUNO_R90SRIP8JxcryDUiYA2BuMt/view">Resume</a> |
+    <a href="mailto: divhet163@gmail.com"><i class="fas fa-envelope"></i></a> |
+    <a href="https://github.com/Het-Shah"><i class="fab fa-github"></i></a> |
+    <a href="https://www.linkedin.com/in/het-shah163/"><i class="fab fa-linkedin-in"></i></a> |
+    <a href="https://twitter.com/het__shah"><i class="fab fa-twitter"></i></a>
+    <!-- <a href="https://medium.com/@divhet163"><i class="fab fa-medium-m"></i></a> -->
+
   </div>
+</div>
 {% endif %}
 
 {{ content }}
