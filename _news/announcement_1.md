@@ -1,7 +1,7 @@
 ---
 layout: post
-date: 2015-10-22 15:59:00-0400
+date: 2020-6-26
 inline: true
 ---
 
-A simple inline announcement.
+SAiDL is holding a Summer Symposium on current AI research (https://bp-gc.in/symposium_2020) in association with APPCAIR Lab. :sparkles: :smile:
