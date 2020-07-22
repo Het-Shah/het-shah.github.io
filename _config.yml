@@ -1,12 +1,12 @@
+--- # -----------------------------------------------------------------------------
 # -----------------------------------------------------------------------------
 # Site settings
-# -----------------------------------------------------------------------------
 name: Het Shah
 email: divhet163@gmail.com
-description:  # this means to ignore newlines until "url:"
-footer_text: 
+description: # this means to ignore newlines until "url:"
+footer_text:
 
-url:  # the base hostname & protocol for your site
+url: # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/
 last_updated: # leave blank if you don't want to display last updated
 
@@ -49,16 +49,16 @@ paginate_path: /blog/page:num/
 
 text:
   pagination:
-    newer: 'Newer'
-    older: 'Older'
+    newer: "Newer"
+    older: "Older"
 
 # Comments
 disqus_shortname: het-shah-github-io # put your disqus shortname
 
 # Optional features
-show_social_icons:  false
-enable_anchorjs:    false
-enable_katex:       true
+show_social_icons: false
+enable_anchorjs: false
+enable_katex: true
 
 # -----------------------------------------------------------------------------
 # Collections
@@ -84,20 +84,19 @@ markdown: kramdown
 highlighter: pygments
 
 # Includes & excludes
-include: ['_pages']
+include: ["_pages"]
 exclude: [vendor]
 
 # Plug-ins
 plugins:
-    - jekyll-email-protect
-    - jekyll-paginate
-    - jekyll/scholar
-    - jemoji
+  - jekyll-email-protect
+  - jekyll-paginate
+  - jekyll/scholar
+  - jemoji
 
 # Jekyll-Scholar
 scholar:
-
-  last_name: Einstein
+  last_name: Shah
 
   style: apa
   locale: en
