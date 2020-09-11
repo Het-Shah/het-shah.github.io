@@ -39,8 +39,8 @@ google_analytics: UA-160880451-1 # out your google-analytics code
 # -----------------------------------------------------------------------------
 # Blog
 # -----------------------------------------------------------------------------
-blog_name:
-blog_description:
+blog_name: Blogs
+blog_description: Some tutorials by me
 
 # Pagination
 paginate: 4
