@@ -43,14 +43,14 @@ blog_name: Blogs
 blog_description: Some tutorials by me
 
 # Pagination
-paginate: 4
+paginate: 10
 permalink: /blog/:year/:title/
 paginate_path: /blog/page:num/
 
 text:
   pagination:
-    newer: "Newer"
-    older: "Older"
+    newer: "Next"
+    older: "Prev"
 
 # Comments
 disqus_shortname: het-shah-github-io # put your disqus shortname
