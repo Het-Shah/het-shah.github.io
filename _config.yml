@@ -97,6 +97,7 @@ plugins:
 # Jekyll-Scholar
 scholar:
   last_name: Shah
+  first_name: Het
 
   style: apa
   locale: en
