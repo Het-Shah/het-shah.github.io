@@ -2,19 +2,31 @@
 layout: default
 ---
 
-<div class="header-bar">
+<!-- <div class="header-bar">
   <h1>{{ site.blog_name }}</h1>
   <h2>{{ site.blog_description }}</h2>
-</div>
+</div> -->
 
 
 <ul class="post-list">
   {% for post in paginator.posts %}
-    <li>
-      <h2><a class="post-title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
-      <p class="post-meta">{{ post.date | date: '%B %-d, %Y — %H:%M' }}</p>
-      <p>{{ post.description }}</p>
-    </li>
+  <li>
+    <h2><a class="post-title" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h2>
+    <p class="post-meta">{{ post.date | date: '%B %-d, %Y' }}</p>
+    <p>{{ post.description }}</p>
+    <div>
+      <!-- {% for author in post.author %}
+      <a>{{ author }}</a>,
+      {% endfor %}
+      | -->
+      {% for tag in post.categories %}
+      <a
+        style=" border-radius: 20px; border: 1px solid #828282; color: #828282; padding: 1px 5px; margin-left: 5px; text-align: center;">
+        {{tag}}
+      </a>
+      {% endfor %}
+    </div>
+  </li>
   {% endfor %}
 </ul>
 

@@ -1,8 +1,10 @@
 ---
 layout: post
 title:  "Linked List Important Questions"
-author: Het Shah, Avishree Khare
-categories: [ DSA, interviews, tutorials ]
+author: [Het Shah, ", " ,Avishree Khare]
+author_webpages: [https://het-shah.github.io/, http://avishreekh.github.io/]
+categories: [ DSA, Interviews, Tutorial ]
+comments: true
 ---
 
 ### Important concepts:

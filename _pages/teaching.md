@@ -6,6 +6,15 @@ description: Here are some courses I have taught / mentored in past.
 ---
 
 <ul>
+    <li> Teaching Assitant - BITS F464 (Machine Learning)
+        <div>
+            <ul>
+                <li> Responsible for conducting the lab sessions for 120 undergraduate students in their pre-final year. </li>
+                <li> Responsible for creating Project statements for the course.</li>
+            </ul>
+        </div>
+    </li>
+
     <li>Instructor - Introduction to Python for development and Data Analytics, CTE, BITS Goa (<a href="https://drive.google.com/file/d/1Hj4O6HimM9aKNh2dEonNnRii9c6TVN1s/view?usp=sharing" target="_blank" title="Certificate">Certificate</a>)
         <div>
             <ul>
@@ -14,7 +23,7 @@ description: Here are some courses I have taught / mentored in past.
             </ul>
         </div>
     </li>
-    <li>Instructor - Introduction to Deep Learning,QSTP, BITS Goa 
+    <li>Instructor - Introduction to Deep Learning, QSTP, BITS Goa 
         <div>
             <ul>
                 <li>Taught basics of the python language and its various applications in fields like data analytics, web scraping, game dev.</li>

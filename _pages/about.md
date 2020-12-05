@@ -9,7 +9,7 @@ profile:
   image: prof_pic.jpg
 
 news: true
-social: false
+social: true
 ---
 
 I am a Final year Computer Science Undergraduate at Birla Institute of Technology and Science Pilani, K. K. Birla Goa Campus. I am an Undergraduate Student Researcher at <a href="https://bits-pilani.ac.in/APPCAiR/" target="_blank" >Anuradha and Prashanth Palakurthi Centre for Artificial Intelligence Research (APPCAIR)</a> Lab at my University where I am currently researching on reasoning abilities of Transformer networks. I'll be working on transfer of  Pose Estimation networks from humans to animals as a research intern at <a href="http://visual-computing.in/home/" target="_black">Visual Computing Lab(VCL)</a> at IISc Bangalore.

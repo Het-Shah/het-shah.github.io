@@ -1,9 +1,11 @@
 ---
 layout: post
 title:  "Knowledge Distillation for Convolution Neural Networks using Pytorch"
-author: Het Shah
-categories: [ Knowledge Distillation, tutorial, Convolution Neural Networks ]
+author: [Het Shah]
+author_webpages: [https://het-shah.github.io/]
+categories: [ Knowledge Distillation, Tutorial, Convolution Neural Networks ]
 image: assets/img/kd.jpg
+comments: true
 ---
 <!-- ![alt text](/assets/img/kd.jpg) -->
 <img src="/assets/img/kd.jpg" width="700" height="500">

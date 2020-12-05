@@ -1,8 +1,10 @@
 ---
 layout: post
 title:  "Stacks and Queues Important Questions"
-author: Het Shah
-categories: [ DSA, interviews, tutorials ]
+author: [Het Shah]
+author_webpages: [https://het-shah.github.io/]
+categories: [ DSA, Interviews, Tutorial ]
+comments: true
 ---
 
 ### Important points

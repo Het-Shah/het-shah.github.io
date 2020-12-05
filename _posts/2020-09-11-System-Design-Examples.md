@@ -1,8 +1,10 @@
 ---
 layout: post
 title:  "System Design Examples"
-author: Het Shah
-categories: [ System Design, interviews, tutorials ]
+author: [Het Shah]
+author_webpages: [https://het-shah.github.io/]
+categories: [ System Design, Interviews, Tutorial ]
+comments: true
 ---
 
 # WhatsApp System Design

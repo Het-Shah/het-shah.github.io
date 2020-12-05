@@ -1,8 +1,10 @@
 ---
 layout: post
 title:  "System design basics"
-author: Avishree Khare
-categories: [ System Design, Interviews, tutorial ]
+author: [Avishree Khare]
+author_webpages: [http://avishreekh.github.io/]
+categories: [ System Design, Interviews, Tutorial ]
+comments: true
 ---
 
 ## [BASICS](https://www.youtube.com/watch?v=xpDnVSmNFX0&list=PLMCXHnjXnTnvo6alSjVkgxV-VH6EPyvoX)
