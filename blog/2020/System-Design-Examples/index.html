@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Het Shah | System Design Examples</title>
+  <meta name="description" content="A beautiful Jekyll theme for academics">
+
+  
+
+  <link rel="shortcut icon" href="/assets/img/favicon.ico">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="/blog/2020/System-Design-Examples/">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    
+    <span class="site-title">
+      
+      <strong>Het</strong> Shah
+    </span>
+    
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path fill="#424242"
+              d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z" />
+            <path fill="#424242"
+              d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z" />
+            <path fill="#424242"
+              d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z" />
+          </svg>
+        </span>
+      </label>
+
+      <div class="trigger">
+        <!-- About -->
+        <a class="page-link" href="/">About</a>
+
+        <!-- Blog -->
+        <a class="page-link" href="/blog/">Blog</a>
+
+        <!-- Pages -->
+        
+        
+        
+        
+        
+        
+        
+        
+        <a class="page-link" href="/projects/">Projects</a>
+        
+        
+        
+        <a class="page-link" href="/publications/">Publications</a>
+        
+        
+        
+        <a class="page-link" href="/teaching/">Teaching</a>
+        
+        
+        
+        
+
+        <!-- CV link -->
+        <a class="page-link"
+          href="/assets/pdf/Resume_HetShah.pdf">Resume</a>
+
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">System Design Examples</h1>
+    <p class="post-meta">September 11, 2020 •
+      Het Shah</p>
+  </header>
+
+  <article class="post-content">
+    <h1 id="whatsapp-system-design">WhatsApp System Design</h1>
+
+<h3 id="key-features">Key features</h3>
+
+<ul>
+  <li>Group messaging</li>
+  <li>Read/receive feature</li>
+  <li>Online/last seen</li>
+  <li>Image sharing</li>
+  <li>Chats are temporary/permanent</li>
+</ul>
+
+<h3 id="one-to-one-chat">One-to-one chat</h3>
+
+<ul>
+  <li>Gateways between a mobile and WA server</li>
+  <li>Keeping a map of which user is connected to which gateway <strong>(expensive).</strong> Also, cause this will change a lot (updates in database not nice tough to make it consistent).</li>
+  <li>Make the gateway dumb (just use it as a passing forward thing)</li>
+  <li>Instead of a map use a sessions microservice that keeps track of the current sessions.</li>
+  <li>Now, HTTP can’t be used for receiving messages (sending is fine) because it is a client to server protocol. One bad way is long polling (poll every min whether you received a msg this is not realtime).</li>
+  <li>New protocol over TCP - Websockets (good for chatting)</li>
+  <li>One more database connected to the sessions microservice of messages to be delivered. So once you send a message you get notified the message is sent and then it will be delivered coz database is persistent.</li>
+  <li>Now once the message is delivered to B, B has to send an acknowledgment (TCP handshake). Once B reads same thing again.</li>
+</ul>
+
+<h3 id="last-seenonline">Last seen/online</h3>
+
+<ul>
+  <li>A sends to gateway</li>
+  <li>gateway to another microservice “Last seen” which keeps track of the users activity in a database.</li>
+  <li>database me keep a threshold of like 10 seconds</li>
+</ul>
+
+<h3 id="group-message">Group message</h3>
+
+<ul>
+  <li>additional microservice connected to sessions named “group service” which tells who all are in a group.</li>
+  <li>cannot keep inf member limit (sending msg one by one will not be realtime then), limit it to x (WA has a limit of 250)</li>
+  <li>group service will send a list to sessions</li>
+  <li>Convert your message, using a parser like thrift (FB uses this internally), advantage is that it helps to be in a uniform machine/code language.</li>
+  <li>Have a look at <strong>consistent hashing.</strong></li>
+</ul>
+
+<h1 id="tinder-system-design">Tinder System Design</h1>
+
+<p>IMP - Two ways to do system design</p>
+
+<ol>
+  <li>Start with ER diagram and then design the features what you can provide (sort of constraints you )</li>
+  <li>Start with the features and move towards the ER.</li>
+</ol>
+
+<h3 id="key-features-1">Key Features</h3>
+
+<ul>
+  <li>Store Profiles (Images important for any dating site) (Follow up ques - how many images per user, say 5)</li>
+  <li>Recommend Matches? (Depends on many things - no of active users</li>
+  <li>Note the matches that are made</li>
+  <li>Direct messaging after matching</li>
+</ul>
+
+<h3 id="storing-profiles">Storing Profiles</h3>
+
+<ul>
+  <li>The main problem here is how are you going to store the images (there will be a lot of users and then for each user a constant multiple of images to be stored)</li>
+  <li>Two ways -
+    <ol>
+      <li>Files -</li>
+      <li>
+        <p>Blobs - Binary Large Objects (taught in database course in colleges GENERALLY (not in BITS))</p>
+
+        <p><strong>BLOB :</strong></p>
+
+        <p><code class="language-plaintext highlighter-rouge">BLOB</code> (<em>Binary Large Object</em>) is a large object data type in the database system. <code class="language-plaintext highlighter-rouge">BLOB</code> could store a large chunk of data, document types and even media files like audio or video files. <code class="language-plaintext highlighter-rouge">BLOB</code> fields allocate space only whenever the content in the field is utilized. <code class="language-plaintext highlighter-rouge">BLOB</code> allocates spaces in Giga Bytes.</p>
+
+        <p><strong>USAGE OF BLOB :</strong></p>
+
+        <p>You can write a binary large object (<code class="language-plaintext highlighter-rouge">BLOB</code>) to a database as either binary or character data, depending on the type of field at your data source. To write a <code class="language-plaintext highlighter-rouge">BLOB</code> value to your database, issue the appropriate <code class="language-plaintext highlighter-rouge">INSERT or UPDATE</code> statement, and pass the <code class="language-plaintext highlighter-rouge">BLOB</code> value as an input parameter. If your <code class="language-plaintext highlighter-rouge">BLOB</code> is stored as text, such as a SQL Server text field, you can pass the <code class="language-plaintext highlighter-rouge">BLOB</code> as a string parameter. If the <code class="language-plaintext highlighter-rouge">BLOB</code> is stored in binary formats, such as a SQL Server image field, you can pass an array of type byte as a binary parameter.</p>
+
+        <p>A useful link : <a href="https://stackoverflow.com/questions/211895/storing-documents-as-blobs-in-a-database-any-disadvantages">Storing documents as BLOB in Database - Any disadvantages ?</a></p>
+      </li>
+    </ol>
+
+    <ul>
+      <li>So what are the advantages of a DBMS vs File in general?
+        <ol>
+          <li>Mutability - changing fields in rows is pretty easy</li>
+          <li>Transaction guarantees - ACID Properties</li>
+          <li>Indexes - To improve searching capabilities</li>
+          <li>Access Control -</li>
+        </ol>
+      </li>
+      <li>Mutability is not required coz you will be changing the image as a whole and not a few pixels so make it immutable.</li>
+      <li>Transaction guarantees not need coz we are not doing an atomic update (no one else will write your image)</li>
+      <li>Index searching is useful but can’t search inside a image so we can implement this in code as well</li>
+      <li>
+        <p>Access control can be done in File system (tedious but can be done)</p>
+      </li>
+      <li>Advantages of FS -
+        <ol>
+          <li>Cheaper</li>
+          <li>Faster than SQL querying</li>
+          <li>Build a CDN (content delivery network)</li>
+        </ol>
+      </li>
+      <li>
+        <p>Use file URLs in a database and userID</p>
+      </li>
+      <li>Now first  thing is a gateway - the work of the gateway here would to authenticate the user using the username and token.</li>
+      <li>The gateway  authenticates this by forwarding these to the profiles service, if the profiles service says yes then the gateway will entertain any requests that are made like update profile etc etc.</li>
+      <li>After authenticating the gateway will forward to other microservices</li>
+      <li>Now in the profile section let’s say you need to add images, you can keep the images in the same service as the profile service or create a new service which handles the images, namely the image service. Why? because you then just use these images directly instead of all the personal data of a user for other services like MASHEEN LEARNIN.</li>
+      <li>Images service will have two things -
+        <ul>
+          <li>distributed file system - DFS</li>
+          <li>table to store image urls and userID</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="chatting">Chatting</h3>
+
+<ul>
+  <li>Some new points -
+    <ul>
+      <li>use XMPP protocol instead of HTTP - XMPP is peer to peer</li>
+      <li>use websockets/TCP</li>
+      <li>use sessions microservice to maintain connections and socket id</li>
+    </ul>
+  </li>
+</ul>
+
+  </article>
+
+  
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = 'het-shah-github-io';
+    var disqus_identifier = '/blog/2020/System-Design-Examples';
+    var disqus_title = "System Design Examples";
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+      Disqus.</a></noscript>
+  
+
+</div>
+      </div>
+    </div>
+
+    <!-- <footer>
+
+  <div class="wrapper">
+    &copy; Copyright 2021 Het Shah.
+    
+    
+  </div>
+
+</footer> -->
+
+    <!-- Load jQuery -->
+<script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<!-- Load Common JS -->
+<script src="/assets/js/common.js"></script>
+
+
+<!-- Load KaTeX -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js"></script>
+<script src="/assets/js/katex.js"></script>
+
+
+
+
+<!-- Include custom icon fonts -->
+<link rel="stylesheet" href="/assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/assets/css/academicons.min.css">
+
+
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-160880451-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+  </body>
+
+</html>

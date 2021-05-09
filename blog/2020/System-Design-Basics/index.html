@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Het Shah | System design basics</title>
+  <meta name="description" content="A beautiful Jekyll theme for academics">
+
+  
+
+  <link rel="shortcut icon" href="/assets/img/favicon.ico">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="/blog/2020/System-Design-Basics/">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    
+    <span class="site-title">
+      
+      <strong>Het</strong> Shah
+    </span>
+    
+
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path fill="#424242"
+              d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z" />
+            <path fill="#424242"
+              d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z" />
+            <path fill="#424242"
+              d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z" />
+          </svg>
+        </span>
+      </label>
+
+      <div class="trigger">
+        <!-- About -->
+        <a class="page-link" href="/">About</a>
+
+        <!-- Blog -->
+        <a class="page-link" href="/blog/">Blog</a>
+
+        <!-- Pages -->
+        
+        
+        
+        
+        
+        
+        
+        
+        <a class="page-link" href="/projects/">Projects</a>
+        
+        
+        
+        <a class="page-link" href="/publications/">Publications</a>
+        
+        
+        
+        <a class="page-link" href="/teaching/">Teaching</a>
+        
+        
+        
+        
+
+        <!-- CV link -->
+        <a class="page-link"
+          href="/assets/pdf/Resume_HetShah.pdf">Resume</a>
+
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">System design basics</h1>
+    <p class="post-meta">September 11, 2020 •
+      Avishree Khare</p>
+  </header>
+
+  <article class="post-content">
+    <h2 id="basics"><a href="https://www.youtube.com/watch?v=xpDnVSmNFX0&amp;list=PLMCXHnjXnTnvo6alSjVkgxV-VH6EPyvoX">BASICS</a></h2>
+
+<p><strong>What exactly are we trying to do?</strong></p>
+
+<p>Let’s say you have some code that could help people. People would pay you for using this code.</p>
+
+<p><strong>How will they access your code?</strong></p>
+
+<p>You host your code on the internet and provide APIs for people to interact. They can send a REQUEST and receive a RESPONSE from an API.</p>
+
+<p><strong>Where will this code be stored?</strong></p>
+
+<p>If you have very few users, you could store it on your desktop. But when you have several users, you might need to host it on cloud.</p>
+
+<p><strong>What is Cloud?</strong></p>
+
+<p>It is essentially a group of servers somewhere where your code can be stored. You use services like AWS to buy some cloud storage.</p>
+
+<p><strong>Why Cloud?</strong></p>
+
+<p>Firstly, you would not that to buy so many machines. It is also comparatively cheaper. Also, you wouldn’t have to worry about how the data is being stored, etc. You are paying AWS to maintain all this for you. You would only need to bother about the requirements of the users, etc. without thinking about storage.</p>
+
+<p><strong>What if you have many many users?</strong></p>
+
+<p>You would need to SCALE your systems.</p>
+
+<p><strong>How can you scale your systems?</strong></p>
+
+<ol>
+  <li>By making it bigger (VERTICAL SCALING)</li>
+  <li>By adding more systems (HORIZONTAL SCALING)</li>
+</ol>
+
+<p><a href="https://www.notion.so/e605db03395943e4b49b4217ee1242ec">Horizontal vs. Vertical Scaling</a></p>
+
+<p><strong>So how does scaling happen in systems today?</strong></p>
+
+<p>Systems employ both horizontal and vertical scaling. You keep making your device bigger initially as your users increase. Once, you reach a certain limit, start adding more servers.</p>
+
+<p>So you use <strong>multiple</strong> (horizontal scaling) <strong>bigger</strong> (vertical scaling) <strong>servers</strong>.</p>
+
+<h2 id="netflix"><a href="https://www.youtube.com/watch?v=x9Hrn0oNmJM&amp;list=PLMCXHnjXnTnvo6alSjVkgxV-VH6EPyvoX&amp;index=8">NETFLIX</a></h2>
+
+<p><strong>What kinds of videos are under consideration?</strong></p>
+
+<ol>
+  <li>Videos having different formats (high quality, low quality, etc.)</li>
+  <li>Videos of different resolutions (1080p, 720p, etc.)</li>
+</ol>
+
+<p><strong>How does Netflix handle this?</strong></p>
+
+<p>It stores videos in different formats and of different resolutions. (for example one copy of high quality and 1080p, another of high quality and 480p, etc.)</p>
+
+<p><strong>How is the video uploaded and streamed?</strong></p>
+
+<p>Videos need to be divided into chunks because you would not want to send the entire video at once to the user (takes time).</p>
+
+<p>These chunks can be of equal time intervals (so 0 to 3 secs is one chunk, 3 to 6 is another chunk).</p>
+
+<p><strong>There is a problem with this..</strong></p>
+
+<p>What if there is a very critical scene from 2 to 4 seconds and your next chunk starts at 3 secs. The user would not like for a buffering at 3 secs.</p>
+
+<p><strong>How to handle this?</strong></p>
+
+<p>Netflix divides chunks based on scenes so that the flow doesn’t break. So each chunk now becomes a scene and can be of variable lengths.</p>
+
+<p><strong>There is another important point here.</strong></p>
+
+<p>Some videos may be such that people only view parts of it (SPARSE videos) compared to other videos that are watched for a longer duration (DENSE videos). Netflix predicts which portions (chunks) of the videos to be sent based on this to provide a better user experience.</p>
+
+<p><strong>So what happens when a video is requested by a user?</strong></p>
+
+<p>We know that the video is sent in scene chunks, but from where?As most amazon servers are in the US, it might take a lot of time to send these chunks to a user in India.</p>
+
+<p>To overcome this, Netflix has installed caches next to ISPs. These caches store content relevant to that area. So for someone in India, if he/she requests a bollywood movie, the ISP will first check the cache before approaching Netflix servers. Surprisingly, 90% of the requests are handled by these caches today.</p>
+
+<p><strong>What happens when new content is uploaded?</strong></p>
+
+<p>The content is divided into chunks and then sent to caches where it would be relevant. This is done at odd hours (say 4 PM) when there will not be any requests to handle, so the transfer can happen smoothly.</p>
+
+<h2 id="general-approach">GENERAL APPROACH</h2>
+
+<p>Ask the questions first:</p>
+
+<ol>
+  <li>What is the goal of this system</li>
+  <li>Who would be the users of this system</li>
+  <li>What are the key features required</li>
+  <li>What is the scale that we would be working on</li>
+</ol>
+
+<h2 id="building-a-chat-application"><strong>BUILDING A CHAT APPLICATION</strong></h2>
+
+<ol>
+  <li>
+    <p>Database tables: Which tables need to be present</p>
+
+    <p>One-to-one chats: <a href="https://www.cronj.com/blog/how-to-develop-chat-system-design-like-facebook-messenger/">https://www.cronj.com/blog/how-to-develop-chat-system-design-like-facebook-messenger/</a></p>
+
+    <p>Group chats allowed: <a href="https://dba.stackexchange.com/questions/221721/how-to-structure-table-in-mysql-for-group-chat-application">https://dba.stackexchange.com/questions/221721/how-to-structure-table-in-mysql-for-group-chat-application</a></p>
+  </li>
+  <li>
+    <p>OOP design: <a href="https://massivetechinterview.blogspot.com/2015/07/design-chat-server-hello-world.html">https://massivetechinterview.blogspot.com/2015/07/design-chat-server-hello-world.html</a></p>
+  </li>
+</ol>
+
+  </article>
+
+  
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_shortname = 'het-shah-github-io';
+    var disqus_identifier = '/blog/2020/System-Design-Basics';
+    var disqus_title = "System design basics";
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+      Disqus.</a></noscript>
+  
+
+</div>
+      </div>
+    </div>
+
+    <!-- <footer>
+
+  <div class="wrapper">
+    &copy; Copyright 2021 Het Shah.
+    
+    
+  </div>
+
+</footer> -->
+
+    <!-- Load jQuery -->
+<script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+
+<!-- Load Common JS -->
+<script src="/assets/js/common.js"></script>
+
+
+<!-- Load KaTeX -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js"></script>
+<script src="/assets/js/katex.js"></script>
+
+
+
+
+<!-- Include custom icon fonts -->
+<link rel="stylesheet" href="/assets/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/assets/css/academicons.min.css">
+
+
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-160880451-1', 'auto');
+ga('send', 'pageview');
+</script>
+
+
+
+  </body>
+
+</html>
