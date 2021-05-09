@@ -11,12 +11,18 @@
         height: 200px;
         width: 100%;
 
+        .div_tag{
+            height: auto;
+            position: relative;
+            width: 500px
+        }
+        
         img {
             height: auto;
             position: relative;
-                left: -25%;
-                top: -5%;
-            width: 500px;
+                // left: -25%;
+                // top: -5%;
+            width: 100%;
         }
 
         a {

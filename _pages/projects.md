@@ -1,6 +1,6 @@
 ---
 layout: page
-title: projects
+title: Projects
 permalink: /projects/
 description:
 ---
@@ -12,7 +12,9 @@ description:
     <div class="thumbnail">
         <a href="{{ project.redirect }}" target="_blank">
         {% if project.img %}
-        <img class="thumbnail" src="{{ project.img | prepend: site.baseurl | prepend: site.url }}" />
+        <div class="div_tag">
+            <img class="thumbnail" src="{{ project.img | prepend: site.baseurl | prepend: site.url }}" />
+        </div>
         {% else %}
         <div class="thumbnail blankbox"></div>
         {% endif %}    
@@ -30,7 +32,9 @@ description:
     <div class="thumbnail">
         <a href="{{ project.url | prepend: site.baseurl | prepend: site.url }}">
         {% if project.img %}
-        <img class="thumbnail" src="{{ project.img | prepend: site.baseurl | prepend: site.url }}"/>
+        <div class="div_tag">
+            <img class="thumbnail" src="{{ project.img | prepend: site.baseurl | prepend: site.url }}"/>
+        </div>
         {% else %}
         <div class="thumbnail blankbox"></div>
         {% endif %}    
